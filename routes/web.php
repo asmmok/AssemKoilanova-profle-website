@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\DB;
+use App\Models\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +24,13 @@ Route::get('/aboutMe', function () {
 Route::get('/contactMe', function () {
     return view('contactMe');
 })->name('contactMe');
+Route::get('/post/create', function () {
+    DB::table('post')->insert([
+      'title' => 'Globalisation',
+      'body' => 'Globalisation is the process of interaction and integration among people, companies, and governments worldwide.'
+    ]);
+  });
+    Route::get('/post', function () {
+        $post = Post::find(1);
+        return $post;
+});
