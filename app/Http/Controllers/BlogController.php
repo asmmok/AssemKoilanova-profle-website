@@ -21,5 +21,11 @@ class BlogController extends Controller
                 ]);
                 return back();
             }
+            public function get_blog($id){
+                $post = Post::find($id);
+                if($post==null)
+                return response(404);
+                return view('blog.detail')->with(['post'=>$post]);
+            }
     
 }

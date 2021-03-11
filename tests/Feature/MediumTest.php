@@ -19,4 +19,10 @@ class MediumTest extends TestCase
 
         $response->assertStatus(404);
     }
+    public function test_get_request()
+    {
+        $response = $this->get('/blog/1');
+
+        $response->assertStatus(200);
+    }
 }

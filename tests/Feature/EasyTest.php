@@ -19,4 +19,10 @@ class EasyTest extends TestCase
 
         $response->assertStatus(404);
     }
+    public function test_get_unexisted_post()
+    {
+        $response = $this->get('/client/1000');
+        $response->assertStatus(404);
+        
+    }
 }
