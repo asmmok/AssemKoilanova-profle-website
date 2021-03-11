@@ -5,6 +5,6 @@
 <title>Post</title>
 </head>
 <body>
-    {{$posts}}
+    {{$post}}
 </body>
 </html>

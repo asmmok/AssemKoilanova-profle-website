@@ -7,11 +7,19 @@ use App\Models\Post;
 class BlogController extends Controller
 {
     public function index(){
-        $post=Post::all();
+        $posts=Post::all();
         return view('index')->with( 
             [
-                'posts'=>$post
+                'post'=>$posts
             ]
             );
-    }
+        }
+            public function store(Request $request){
+                Post::create([  
+                    'title' => $request->title,
+                    'body' => $request->body
+                ]);
+                return back();
+            }
+    
 }
